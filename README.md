@@ -12,4 +12,4 @@ The main things this mod changes:
 
 It also partially implements an alternate custom stats system, but it's not too functional.
 
-Using the other mods in the BlenderGuardian collection (eg. Guide+ and General Fixes is highly advised for the best experience)
+Using the other mods in the BlenderGuardian collection (eg. Guide+ and General Fixes) is highly advised for the best experience
