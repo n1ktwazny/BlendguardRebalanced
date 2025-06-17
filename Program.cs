@@ -7,7 +7,7 @@ using BepInEx.Bootstrap;
 using BepInEx.Configuration;
 using UnityEngine.AI;
 
-[BepInPlugin("com.nikt.BlendGuardRebalance", "BlenderGuard Rebalance", "0.1.0")]
+[BepInPlugin("com.nikt.BlendGuardRebalance", "BlenderGuard Rebalance", "0.1.1")]
 [BepInDependency("com.nikt.BlendGuardGFixes", BepInDependency.DependencyFlags.SoftDependency)]
 [BepInDependency("com.nikt.BlendguardGuidePlus", BepInDependency.DependencyFlags.SoftDependency)]
 
@@ -28,7 +28,7 @@ public class BlendRebalance : BaseUnityPlugin{
     
     void Awake(){
         enableRebalance = Config.Bind("Towers", "Enable Tower Rebalancing", true, "Enable the tower rebalances");
-        costType = Config.Bind("Towers", "Enable Cost Merging", costTypes.mixedMerge, "Makes all towers scale at the same time equally");
+        costType = Config.Bind("Towers", "Enable Cost Merging", costTypes.mixedMerge, "mixedMerge = Prices increase for all towers, but the tower that are NOT currently being placed increase less, merge= All prices scale equally(not recommended, normal= keeps vanilla prices & scaling)");
         enableDebugger = Config.Bind("Debug", "Enable Debugger", false, "Share the mod logs");
         speedRampUp = Config.Bind("Invaders", "Speed Ramp Up", true, "Slowly makes new invaders faster as time progresses");
 
@@ -133,7 +133,7 @@ static bool RaiseCost(CurrencyManager __instance, ref int cardIndex){
             }else if (costType.Value == costTypes.mixedMerge)
             {
                 int oldTowerCost = cardCosts[cardIndex];
-                cardCosts[cardIndex] = cardCostsScaling[cardIndex] + (int)Mathf.Round(cardCosts[0] * 1.3f);
+                cardCosts[cardIndex] = cardCostsScaling[cardIndex] + (int)Mathf.Round(cardCosts[0] * 1.2f);
                 if (cardCosts[cardIndex] >= maxCardCosts[cardIndex]){
                     cardCosts[cardIndex] = maxCardCosts[cardIndex];
                     maxCardCosts[cardIndex] += maxCardCostsScaling[cardIndex];
@@ -192,9 +192,9 @@ static bool RaiseCost(CurrencyManager __instance, ref int cardIndex){
         UpdatedTowerStats[2] = new TowerStatsClass().updateTowerStats("Enforcer", TowerStatsClass.TowerTypes.R, 2, 300, 7, 7, 0.4f, 0, 1.65f, 0);
         UpdatedTowerStats[3] = new TowerStatsClass().updateTowerStats("Punisher", TowerStatsClass.TowerTypes.R, 3, 500, 12, 12, 0.3f, 0, 1.65f, 0);
         
-        UpdatedTowerStats[4] = new TowerStatsClass().updateTowerStats("Guardian", TowerStatsClass.TowerTypes.V, 1, 475, 10, 5, 0.8f, 0, 1f, 0);
-        UpdatedTowerStats[5] = new TowerStatsClass().updateTowerStats("Sentinel", TowerStatsClass.TowerTypes.V, 2, 985, 17, 10, 0.6f, 0, 1f, 0);
-        UpdatedTowerStats[6] = new TowerStatsClass().updateTowerStats("Vanguard", TowerStatsClass.TowerTypes.V, 3, 1250, 22, 15, 0.4f, 0, 1f, 0);
+        UpdatedTowerStats[4] = new TowerStatsClass().updateTowerStats("Guardian", TowerStatsClass.TowerTypes.P, 1, 550, 10, 5, 0.8f, 0, 1f, 0);
+        UpdatedTowerStats[5] = new TowerStatsClass().updateTowerStats("Sentinel", TowerStatsClass.TowerTypes.P, 2, 1000, 17, 11, 0.6f, 0, 1f, 0);
+        UpdatedTowerStats[6] = new TowerStatsClass().updateTowerStats("Vanguard", TowerStatsClass.TowerTypes.P, 3, 1300, 22, 15, 0.375f, 0, 1f, 0);
         
         UpdatedTowerStats[7] = new TowerStatsClass().updateTowerStats("Aegis", TowerStatsClass.TowerTypes.B, 0, 375, 11, 0, 0f, 0, 0f, 0);
         UpdatedTowerStats[8] = new TowerStatsClass().updateTowerStats("Bulwark", TowerStatsClass.TowerTypes.B, 1, 750, 23, 0, 0f, 0, 0f, 0);
@@ -210,11 +210,11 @@ static bool RaiseCost(CurrencyManager __instance, ref int cardIndex){
         UpdatedTowerStats[16] = new TowerStatsClass().updateTowerStats("Amplifier", TowerStatsClass.TowerTypes.G, 2, 600, 16, 0, 0f, 300, 0f, 0);
         UpdatedTowerStats[17] = new TowerStatsClass().updateTowerStats("Reactor", TowerStatsClass.TowerTypes.G, 3, 850, 23, 0, 0f, 1000, 0f, 0);
         
-        UpdatedTowerStats[18] = new TowerStatsClass().updateTowerStats("Conduit", TowerStatsClass.TowerTypes.Y, 1, 250, 4, 2, 0.33f, 60, 1f, 60);
-        UpdatedTowerStats[19] = new TowerStatsClass().updateTowerStats("Harvester", TowerStatsClass.TowerTypes.Y, 2, 425, 8, 3, 0.2f, 260, 1f, 440);
-        UpdatedTowerStats[20] = new TowerStatsClass().updateTowerStats("Reaper", TowerStatsClass.TowerTypes.Y, 3, 700, 11, 4, 0.12f, 800, 1f, 1400);
+        UpdatedTowerStats[18] = new TowerStatsClass().updateTowerStats("Conduit", TowerStatsClass.TowerTypes.Y, 1, 250, 4, 2, 0.36f, 60, 1f, 60);
+        UpdatedTowerStats[19] = new TowerStatsClass().updateTowerStats("Harvester", TowerStatsClass.TowerTypes.Y, 2, 425, 8, 3, 0.25f, 260, 1f, 440);
+        UpdatedTowerStats[20] = new TowerStatsClass().updateTowerStats("Reaper", TowerStatsClass.TowerTypes.Y, 3, 700, 11, 4, 0.15f, 800, 1f, 1400);
         
-        UpdatedTowerStats[21] = new TowerStatsClass().updateTowerStats("Base", TowerStatsClass.TowerTypes.None, 0, 750, 5, 0, 0f, 15, 0f, 0);
+        UpdatedTowerStats[21] = new TowerStatsClass().updateTowerStats("Base", TowerStatsClass.TowerTypes.None, 0, 750, 5, 0, 0f, 10, 0f, 0);
         
         var towers = Resources.FindObjectsOfTypeAll<StructureInfo>();
         foreach (var tower in towers) { foreach (var newStats in UpdatedTowerStats){
@@ -362,7 +362,7 @@ public class AdditionalEnemyData : MonoBehaviour{
 public class TowerStatsClass{
     [Header("Tower to override")] public string TowerOverride = "Placeholder"; //Insert name to override *some* tower
 
-    public enum TowerTypes{ None = 0, R = 1, G = 2, Y = 3, B = 4, V = 5, C = 6 }
+    public enum TowerTypes{ None = 0, R = 1, G = 2, Y = 3, B = 4, P = 5, C = 6 }
 
     public TowerTypes TwType;
     public int TwLvl;

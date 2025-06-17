@@ -1,0 +1,5 @@
+C:\Users\Laptop\OneDrive\Dokumenty\GitHub\BlenderGuardRebalance\BlenderGuardRebalance\obj\Debug\netstandard2.0\BlenderGuardRebalance.csproj.AssemblyReference.cache
+C:\Users\Laptop\OneDrive\Dokumenty\GitHub\BlenderGuardRebalance\BlenderGuardRebalance\obj\Debug\netstandard2.0\BlenderGuardRebalance.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Laptop\OneDrive\Dokumenty\GitHub\BlenderGuardRebalance\BlenderGuardRebalance\obj\Debug\netstandard2.0\BlenderGuardRebalance.AssemblyInfoInputs.cache
+C:\Users\Laptop\OneDrive\Dokumenty\GitHub\BlenderGuardRebalance\BlenderGuardRebalance\obj\Debug\netstandard2.0\BlenderGuardRebalance.AssemblyInfo.cs
+C:\Users\Laptop\OneDrive\Dokumenty\GitHub\BlenderGuardRebalance\BlenderGuardRebalance\obj\Debug\netstandard2.0\BlenderGuardRebalance.csproj.CoreCompileInputs.cache
