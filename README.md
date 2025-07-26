@@ -1,30 +1,22 @@
-Hi,
+# Dependencies!!
+- [General Fixes](https://github.com/n1ktwazny/BlendguardGeneralFixes),
+- [Guide Plus](https://github.com/n1ktwazny/BlendguardGuidePlus)
 
-The mod updates almost every important stat to make the mixed towers viable later in the game,
-There are too many changes to go over every single one, but you can actually see the full list
-if you dig through the code like a champ.
-(or play with config files)
 
-The main things this mod changes:
-- DPS of damaging towers,
-- Q generation of towers,
-- HP-Regen relations,
-- Fairer tower cost scaling,
-- And simple difficulty scaling by making enemies faster over time
+# Blendguard Rebalanced
 
-It also partially implements an alternate custom stats system, but it's not too functional.
+Intended to be a central mod of a modpack for [Blendguard](https://romanleco.itch.io/blendguard). 
+Blendguard Rebalanced was supposed to be THE mod that fixes the game's balance but instead discovered a deep rabbit hole of other issues that would've made the scope of this mod be in the ballpark of just straight up a different game. 
 
-Using the other mods in the BlenderGuardian collection (eg. Guide+ and General Fixes) is highly advised for the best experience
+Right now the mod is left in a state where it's usable, but I'd reccommend not using it, if you insist, the mod is not well balanced when it comes to cost scaling.
 
 ---
-## Future
-This mod is bad, it tries to do the impossible, literally, so after Blendguard gets an update it will 
-migrate into being just a kind of "sandbox" mod + smol API.
 
-The name will also change to something cheesy like "BlendguardUnlocked" or something like that
+### Roadmap
+The mod tries to do the impossible, like literally, so after Blendguard gets an update it will migrate into being just a kind of "sandbox" mod + smol API thing. The name might also change to something silly like "BlendguardUnlocked" or something like that.
 
-You will get the ability to change ALL STATS and add debug features that are currently under General Fixes via configs, 
-since IDEALLY General Fixes will no longer need to be used and will be able to fade away.
-
-There might also be a simple API thing that just exposes something like crafting to allow for changing recipes with stats via code
-and in turn make something like making "a 4th tower mod" bearable. I think that'll be a good fate for this mod. Open to seeing suggestions.
+So post update the mod will:
+- Migrate debug features from [General Fixes](https://github.com/n1ktwazny/BlendguardGeneralFixes) over to this mod.
+- Add **more debug features**,
+- Make all Stats edited by the mod editable via configs (Right now it's hardcoded),
+- Expose the Tower stat changer as a small API thing, possibly extending it to adding custom crafting
